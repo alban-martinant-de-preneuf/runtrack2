@@ -10,9 +10,9 @@ $myFloat = 42.7;
 <table>
     <thead>
         <tr>
-            <td>type</td>
-            <td>nom</td>
-            <td>valeur</td>
+            <th>type</th>
+            <th>nom</th>
+            <th>valeur</th>
         </tr>
     </thead>
     <tbody>
