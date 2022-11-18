@@ -21,7 +21,7 @@ if (isset($_GET["width"]) || isset($_GET["height"])) {
         $before = '';
     
         for ($i = 0; $i < (int)$_GET['width'] / 2 - 1; $i++) {
-            $before = $before . ' ';
+            $before .= ' ';
         }
     
         echo "<pre>";
@@ -29,7 +29,7 @@ if (isset($_GET["width"]) || isset($_GET["height"])) {
         for ($i = 0; $i < $_GET["width"] / 2; $i++) {
             echo $before . '/' . $insideLine . "\\<br>";
             if ($i < $_GET["width"] / 2 - 1) {
-                $insideLine = $insideLine . '__';
+                $insideLine .= '__';
             }
             $before = substr($before, 0, -1);
         }
@@ -37,7 +37,7 @@ if (isset($_GET["width"]) || isset($_GET["height"])) {
         $insideSpace = '';
     
         for ($i = 0; $i < $_GET['width'] - 2; $i++) {
-            $insideSpace = $insideSpace . ' ';
+            $insideSpace .= ' ';
         }
     
         for ($i = 0; $i < $_GET["height"]; $i++) {
