@@ -47,7 +47,7 @@ if (isset($_GET["width"]) || isset($_GET["height"])) {
                 echo '|' . $insideLine . '|<br>';
             }
         }
-        echo "<pre>";
+        echo "</pre>";
     } else {
         echo "La largeur doit être un nombre paire.";
     }
