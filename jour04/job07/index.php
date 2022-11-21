@@ -19,19 +19,18 @@ if (isset($_GET["width"]) || isset($_GET["height"])) {
     if ($_GET["width"] % 2 === 0) {
         $insideLine = '';
         $before = '';
-    
-        for ($i = 0; $i < (int)$_GET['width'] / 2 - 1; $i++) {
-            $before .= ' ';
-        }
-    
+        
         echo "<pre>";
     
         for ($i = 0; $i < $_GET["width"] / 2; $i++) {
+            for ($j = 0; $j < ($_GET["width"] / 2) - 1 - $i; $j++) {
+                $before .= ' ';
+            }
             echo $before . '/' . $insideLine . "\\<br>";
             if ($i < $_GET["width"] / 2 - 1) {
                 $insideLine .= '__';
             }
-            $before = substr($before, 0, -1);
+            $before = '';
         }
     
         $insideSpace = '';
