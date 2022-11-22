@@ -40,9 +40,9 @@
         <label for="style-select">sélectionner votre style :</label>
         <select name="style" id="style-select">
             <option value="">--</option>
-            <option value="style1">style 1</option>
-            <option value="style2">style 2</option>
-            <option value="style3">style 3</option>
+            <option <?php echo $_GET["style"] == "style1" ? "selected " : NULL ?>value="style1">style 1</option>
+            <option <?php echo $_GET["style"] == "style2" ? "selected " : NULL ?>value="style2">style 2</option>
+            <option <?php echo $_GET["style"] == "style3" ? "selected " : NULL ?>value="style3">style 3</option>
         </select>
         <input type="submit" value="submit">
     </form>
