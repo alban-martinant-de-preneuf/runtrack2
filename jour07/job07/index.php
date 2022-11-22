@@ -1,10 +1,11 @@
 <?php
 
-function stringToWordArray(string $str): array {
+function stringToWordArray(string $str): array
+{
     $words = [];
     $word = '';
-    for ($i=0; isset($str[$i]); $i++) { 
-        if ($str[$i] !== ' ' ) {
+    for ($i = 0; isset($str[$i]); $i++) {
+        if ($str[$i] !== ' ') {
             $word .= $str[$i];
         } else {
             $words[] = $word;
@@ -15,13 +16,14 @@ function stringToWordArray(string $str): array {
     return $words;
 }
 
-function gras(string $str): string {
+function gras(string $str): string
+{
     $words = stringToWordArray($str);
     $upperLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     $newString = '';
     foreach ($words as $word) {
         $isFirstCharUpper = false;
-        for ($i=0; isset($upperLetters[$i]); $i++) {
+        for ($i = 0; isset($upperLetters[$i]); $i++) {
             if ($word[0] === $upperLetters[$i]) {
                 $isFirstCharUpper = true;
                 break;
@@ -36,8 +38,10 @@ function gras(string $str): string {
     return $newString;
 }
 
-function cesar(string $str, int $decalage = 1): string {
+function cesar(string $str, int $decalage = 1): string
+{
     $alphabet = "abcdefghijklmnopqrstuvwxyz";
+    $alphabetUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     $newIndice = NULL;
     for ($i = 0; isset($str[$i]); $i++) {
         for ($j = 0; isset($alphabet[$j]); $j++) {
@@ -49,20 +53,30 @@ function cesar(string $str, int $decalage = 1): string {
                 $str[$i] = $alphabet[$newIndice];
                 break;
             }
+            if ($str[$i] === $alphabetUpper[$j]) {
+                $newIndice = $j + $decalage;
+                while ($newIndice > 25) {
+                    $newIndice -= 26;
+                }
+                $str[$i] = $alphabetUpper[$newIndice];
+                break;
+            }
         }
     }
     return $str;
 }
 
-function len(string $str): int {
+function len(string $str): int
+{
     $count = 0;
-    for ($i=0; isset($str[$i]) ; $i++) { 
-       $count += 1;
+    for ($i = 0; isset($str[$i]); $i++) {
+        $count += 1;
     }
     return $count;
 }
 
-function plateforme(string $str): string {
+function plateforme(string $str): string
+{
     $newString = '';
     $words = stringToWordArray($str);
     foreach ($words as $word) {
@@ -88,7 +102,7 @@ function plateforme(string $str): string {
     <button type="submit">transformer</button>
 </form>
 
-<?php 
+<?php
 
 if (isset($_GET["fonction"]) && $_GET["str"]) {
     switch ($_GET["fonction"]) {
@@ -105,4 +119,3 @@ if (isset($_GET["fonction"]) && $_GET["str"]) {
 }
 
 ?>
-
