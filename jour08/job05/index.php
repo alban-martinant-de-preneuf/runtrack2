@@ -49,34 +49,60 @@ $playerSymbole = $_SESSION['turn'] % 2 === 0 ? "X" : "O";
 if (isset($_GET['case'])) {
     switch ($_GET['case']) {
         case "0_0":
-            $_SESSION['gameBoard'][0][0] = $playerSymbole;
-            break;
+            if ($_SESSION['gameBoard'][0][0] === '-') {
+                $_SESSION['gameBoard'][0][0] = $playerSymbole;
+                $_SESSION['turn'] += 1;
+            }
+                break;
         case "0_1":
-            $_SESSION['gameBoard'][0][1] = $playerSymbole;
-            break;
+            if ($_SESSION['gameBoard'][0][1] === '-') {
+                $_SESSION['gameBoard'][0][1] = $playerSymbole;
+                $_SESSION['turn'] += 1;
+            }
+                break;
         case "0_2":
-            $_SESSION['gameBoard'][0][2] = $playerSymbole;
-            break;
+            if ($_SESSION['gameBoard'][0][2] === '-') {
+                $_SESSION['gameBoard'][0][2] = $playerSymbole;
+                $_SESSION['turn'] += 1;
+            }
+                break;
         case "1_0":
-            $_SESSION['gameBoard'][1][0] = $playerSymbole;
-            break;
+            if ($_SESSION['gameBoard'][1][0] === '-') {
+                $_SESSION['gameBoard'][1][0] = $playerSymbole;
+                $_SESSION['turn'] += 1;
+            }
+                break;
         case "1_1":
-            $_SESSION['gameBoard'][1][1] = $playerSymbole;
-            break;
+            if ($_SESSION['gameBoard'][1][1] === '-') {
+                $_SESSION['gameBoard'][1][1] = $playerSymbole;
+                $_SESSION['turn'] += 1;
+            }
+                break;
         case "1_2":
-            $_SESSION['gameBoard'][1][2] = $playerSymbole;
-            break;
+            if ($_SESSION['gameBoard'][1][2] === '-') {
+                $_SESSION['gameBoard'][1][2] = $playerSymbole;
+                $_SESSION['turn'] += 1;
+            }
+                break;
         case "2_0":
-            $_SESSION['gameBoard'][2][0] = $playerSymbole;
-            break;
+            if ($_SESSION['gameBoard'][2][0] === '-') {
+                $_SESSION['gameBoard'][2][0] = $playerSymbole;
+                $_SESSION['turn'] += 1;
+            }
+                break;
         case "2_1":
-            $_SESSION['gameBoard'][2][1] = $playerSymbole;
-            break;
+            if ($_SESSION['gameBoard'][2][1] === '-') {
+                $_SESSION['gameBoard'][2][1] = $playerSymbole;
+                $_SESSION['turn'] += 1;
+            }
+                break;
         case "2_2":
-            $_SESSION['gameBoard'][2][2] = $playerSymbole;
-            break;
+            if ($_SESSION['gameBoard'][2][2] === '-') {
+                $_SESSION['gameBoard'][2][2] = $playerSymbole;
+                $_SESSION['turn'] += 1;
+            }
+                break;
     }
-    $_SESSION['turn'] += 1;
     $winner = checkWinner($playerSymbole);
 
     if ($winner === "X" || $winner === "O") {
