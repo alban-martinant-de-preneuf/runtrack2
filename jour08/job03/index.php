@@ -22,9 +22,7 @@ if (isset($_GET['reset'])) {
 
 <ul>
     <?php foreach($_SESSION['users'] as $prenom) {
-        echo '<li>';      
-        echo $prenom;
-        echo '</li>';
+        echo '<li>' . $prenom . '</li>';      
     }
     ?>
 </ul>
