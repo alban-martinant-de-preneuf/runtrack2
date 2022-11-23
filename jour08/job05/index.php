@@ -67,21 +67,15 @@ if (isset($_GET['reset'])) {
 
 <form>
     <table>
-        <tr>
-            <td><button type="submit" name="case" value="0_0"><?php echo $_SESSION['gameBoard'][0][0] ?></button></td>
-            <td><button type="submit" name="case" value="0_1"><?php echo $_SESSION['gameBoard'][0][1] ?></button></td>
-            <td><button type="submit" name="case" value="0_2"><?php echo $_SESSION['gameBoard'][0][2] ?></button></td>
-        </tr>
-        <tr>
-            <td><button type="submit" name="case" value="1_0"><?php echo $_SESSION['gameBoard'][1][0] ?></button></td>
-            <td><button type="submit" name="case" value="1_1"><?php echo $_SESSION['gameBoard'][1][1] ?></button></td>
-            <td><button type="submit" name="case" value="1_2"><?php echo $_SESSION['gameBoard'][1][2] ?></button></td>
-        </tr>
-        <tr>
-            <td><button type="submit" name="case" value="2_0"><?php echo $_SESSION['gameBoard'][2][0] ?></button></td>
-            <td><button type="submit" name="case" value="2_1"><?php echo $_SESSION['gameBoard'][2][1] ?></button></td>
-            <td><button type="submit" name="case" value="2_2"><?php echo $_SESSION['gameBoard'][2][2] ?></button></td>
-        </tr>
+        <?php 
+        for ($i=0; $i<3; $i++) {
+            echo '<tr>';
+            for ($j=0; $j<3; $j++) {
+                echo '<td><button type="submit" name="case" value="' . $i . '_' . $j . '">' . $_SESSION["gameBoard"][$i][$j] . '</button></td>';
+            }
+            echo '</tr>';
+        }
+        ?>
     </table>
     <button type="submit" name="reset" class="reset" value="true">reset</button>
 
