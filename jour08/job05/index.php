@@ -3,26 +3,36 @@
 session_start();
 
 function checkWinner(string $playerSymbole): string {
-    $winner = "-";
     // vérifier lignes
     for ($i=0; $i<3; $i++) {
         if ($_SESSION['gameBoard'][$i][0] == $playerSymbole && $_SESSION['gameBoard'][$i][1] == $playerSymbole && $_SESSION['gameBoard'][$i][2] == $playerSymbole) {
-            $winner = $playerSymbole;
+            return $playerSymbole;
         }
     }
     // vérifier colonnes
     for ($i=0; $i<3; $i++) {
         if ($_SESSION['gameBoard'][0][$i] == $playerSymbole && $_SESSION['gameBoard'][1][$i] == $playerSymbole && $_SESSION['gameBoard'][2][$i] == $playerSymbole) {
-            $winner = $playerSymbole;
+            return $playerSymbole;
         }
     }
     // vérifier diagonales
     $diag1 = $_SESSION['gameBoard'][0][0] == $playerSymbole && $_SESSION['gameBoard'][1][1] == $playerSymbole && $_SESSION['gameBoard'][2][2] == $playerSymbole;
     $diag2 = $_SESSION['gameBoard'][0][2] == $playerSymbole && $_SESSION['gameBoard'][1][1] == $playerSymbole && $_SESSION['gameBoard'][2][0] == $playerSymbole;
     if ($diag1 || $diag2) {
-        $winner = $playerSymbole;
+        return $playerSymbole;
     }
-    return $winner;
+    // match nul 
+    $nul = true;
+    for ($i=0; $i < 3; $i++) { 
+        for ($j=0; $j < 3; $j++) { 
+            if ($_SESSION['gameBoard'][$i][$j] === '-') {
+                $nul = false;
+                break;
+            }              
+        }
+    }
+    if ($nul) return 'n';
+    return "-";
 }
 
 if (!isset($_SESSION['gameBoard'])) {
@@ -71,7 +81,9 @@ if (isset($_GET['case'])) {
 
     if ($winner === "X" || $winner === "O") {
         echo 'bravo ' . $winner;
-    }
+    } elseif ($winner === 'n') {
+        echo 'Match nul ';
+    } 
 }
 
 if (isset($_GET['reset'])) {
