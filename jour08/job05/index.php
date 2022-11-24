@@ -100,7 +100,7 @@ if (isset($_GET['reset'])) {
 
 <?php 
 if (isset($winner)) {
-    if ($winner === "X" || $winner === "O") {
+    if ($winner === $playerSymbols[0] || $winner === $playerSymbols[1]) {
         echo '<h1>bravo ' . $winner . ' !</h1>';
     } elseif ($winner === 'n') {
         echo '<h1>Match nul</h1>';
