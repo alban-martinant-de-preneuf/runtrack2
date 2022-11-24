@@ -2,8 +2,7 @@
 
 session_start();
 
-function checkWinner(array $playerSymbols): string
-{
+function checkWinner(array $playerSymbols): string {
     foreach ($playerSymbols as $playerSymbol) {
         // vérifier lignes
         for ($i = 0; $i < 3; $i++) {
@@ -57,14 +56,7 @@ if (isset($_GET['case'])) {
             $_SESSION['turn'] += 1;
         }
     }
-
     $winner = checkWinner($playerSymbols);
-
-    if ($winner === "X" || $winner === "O") {
-        echo 'bravo ' . $winner;
-    } elseif ($winner === 'n') {
-        echo 'Match nul ';
-    }
 }
 
 if (isset($_GET['reset'])) {
@@ -104,5 +96,13 @@ if (isset($_GET['reset'])) {
         ?>
     </table>
     <button type="submit" name="reset" class="reset" value="true">reset</button>
-
 </form>
+
+<?php 
+if (isset($winner)) {
+    if ($winner === "X" || $winner === "O") {
+        echo '<h1>bravo ' . $winner . ' !</h1>';
+    } elseif ($winner === 'n') {
+        echo '<h1>Match nul</h1>';
+    }
+}
