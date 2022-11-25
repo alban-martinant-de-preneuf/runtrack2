@@ -30,7 +30,7 @@ $result = $request->fetch_array(MYSQLI_ASSOC);
         <?php
         do {
             echo '<tr>';
-            foreach ($result as $key => $value) {
+            foreach ($result as $value) {
                 echo '<td>' . $value . '</td>';
             }
             $result = $request->fetch_array(MYSQLI_ASSOC);
