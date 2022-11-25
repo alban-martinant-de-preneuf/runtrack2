@@ -28,14 +28,14 @@ $result = $request->fetch_array(MYSQLI_ASSOC);
     <tbody>
 
         <?php
-        do {
+        while ($result !== NULL) {
             echo '<tr>';
             foreach ($result as $value) {
                 echo '<td>' . $value . '</td>';
             }
             $result = $request->fetch_array(MYSQLI_ASSOC);
             echo '</tr>';
-        } while ($result !== NULL) ?>
+        }  ?>
 
     </tbody>
 
