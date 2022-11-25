@@ -2,7 +2,7 @@
 
 $mySqli = new mysqli('localhost', 'root', '', 'jour09');
 
-$request = $mySqli->query('select * from etudiants');
+$request = $mySqli->query('SELECT * FROM etudiants');
 
 $result = $request->fetch_array(MYSQLI_ASSOC);
 
