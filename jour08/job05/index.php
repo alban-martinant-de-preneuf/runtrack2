@@ -50,7 +50,7 @@ $playerSymbols = ['X', 'O'];
 $currentPlayer = $_SESSION['turn'] % 2 === 0 ? $playerSymbols[0] : $playerSymbols[1];
 
 if (isset($_GET['case'])) {
-    if (checkWinner($playerSymbols)) {
+    if (checkWinner($playerSymbols) === '-') {
         if ($_SESSION['gameBoard'][$_GET['case'][0]][$_GET['case'][-1]] === '-') {
             $_SESSION['gameBoard'][$_GET['case'][0]][$_GET['case'][-1]] = $currentPlayer;
             $_SESSION['turn'] += 1;
